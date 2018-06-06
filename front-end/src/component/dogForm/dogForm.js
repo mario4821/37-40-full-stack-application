@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from './../../utils';
 
-const defaultState = { title: '', error: null };
+const defaultState = {
+  firstName: '',
+  age: '',
+  breed: '',
+  details: '',
+  location: '',
+  error: null,
+};
 
 export default class DogForm extends React.Component {
   constructor(props) {
@@ -34,24 +41,54 @@ export default class DogForm extends React.Component {
   }
 
   handleChange(event) {
+    const { name, value } =
     event.preventDefault();
-    this.setState({ title: event.target.value });
+    this.setState({ [name]: value });
   }
 
   render() {
+    const { buttonText } = this.props;
     return (
       <form
       onSubmit={this.handleSubmit}
       className="dog-form"
       >
       <input
-      name="title"
+      name="firstName"
       type="text"
-      placeholder="Enter a dog title"
-      value={this.state.title}
+      placeholder="Enter a dog name"
+      value={this.state.firstName}
       onChange={this.handleChange}
       />
-      <button type="submit">{this.props.buttonText}</button>
+      <input
+      type="text"
+      name="breed"
+      placeholder="Dog Breed"
+      value={this.state.breed}
+      onChange={this.handleChange}
+      />
+      <input
+      type="number"
+      name="age"
+      placeholder="Dog Age"
+      value={this.state.age}
+      onChange={this.handleChange}
+      />
+      <input
+      type="text"
+      name="location"
+      placeholder="Zip location"
+      value={this.state.location}
+      onChange={this.handleChange}
+      />
+      <textarea
+      type="text"
+      name="details"
+      placeholder="Details"
+      value={this.state.details}
+      onChange={this.handleChange}
+      />
+      <button type="submit">{buttonText}</button>
       </form>
     );
   }

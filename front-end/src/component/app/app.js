@@ -5,18 +5,11 @@ import AuthRedirect from '../auth-redirect/auth-redirect';
 import Dashboard from '../dashboard/dashboard';
 import AuthLanding from '../auth-landing/auth-landing';
 
-
-// Vinicio - Routes
-//              /
-//           Dashboard (Requires Login)
-//           Account (Requires Login)
-//           Pictures (Requires Login)
-//           SignUp
-//           Login
 class App extends React.Component {
   render() {
     return (
       <div className='app'>
+      <h1>Pound Puppy Alert</h1>
         <BrowserRouter>
           <div>
             <Route path='*' component={AuthRedirect}/>

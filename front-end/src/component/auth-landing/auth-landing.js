@@ -3,21 +3,19 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import * as authActions from '../../actions/auth';
+import * as authActions from '../../action/auth';
 
 import autoBind from '../../utils';
 import AuthForm from '../auth-form/auth-form';
 
-import * as routes from '../../routes';
+import * as routes from '../../utils/route';
 
 class AuthLanding extends React.Component {
   constructor(props) {
     super(props);
     autoBind.call(this, AuthLanding);
   }
-  //-------------------------------------------------------
-  // MEMBER FUNCTIONS (METHODS)
-  //-------------------------------------------------------
+
   handleLogin(user) {
     return this.props.pDoLogin(user)
       .then(() => {
@@ -34,12 +32,9 @@ class AuthLanding extends React.Component {
       .catch(console.error);
   }
 
-  //-------------------------------------------------------
-  // LIFE CYCLE HOOKS
-  //-------------------------------------------------------
   render() {
     const rootJSX = <div>
-      <h2> WELCOME TO OUR APP!! </h2>
+      <h2> WELCOME TO OUR APP! </h2>
       <Link to='/signup'> Sign up to our app</Link>
       <Link to='/login'> Login to our app</Link>
     </div>;
@@ -81,7 +76,7 @@ const mapStateToProps = state => ({
   token: state.token,
 });
 
-// Vinicio - We need to log in and to sign up
+
 const mapDispatchToProps = dispatch => ({
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
   pDoLogin: user => dispatch(authActions.loginRequest(user)),

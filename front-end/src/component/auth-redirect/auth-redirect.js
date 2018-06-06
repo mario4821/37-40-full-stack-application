@@ -2,19 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import * as routes from '../../routes';
-import {ROOT_ROUTE} from "../../routes";
+import * as routes from '../../utils/route';
 
-
-/* HOW TO DESIGN A NEW COMPONENT?
-  1 - Do I need to connect to the store?
-          - This component needs access to the token.
-  2 - Do I need props?
-          - Yes. We need the location
-  3 - Do I need any member functions (aka. methods) or lifecycle hooks?
-          - Nothing besides render
-  4 - What do I need to render?
-* */
 class AuthRedirect extends React.Component {
   render() {
     const { location, token } = this.props;
@@ -26,12 +15,11 @@ class AuthRedirect extends React.Component {
     pathname === routes.ROOT_ROUTE) {
       if (token) {
         destinationRoute = routes.DASHBOARD_ROUTE;
-      }
-      // Vinicio - if the user is logged in, we'll redirect him/her to the dashboard
-    } else if (!token) { // Vinicio - This if basically happens with EVERY OTHER ROUTE
+      } 
+    } else if (!token) { 
       destinationRoute = routes.ROOT_ROUTE;
     }
-    // Vinicio - 3 cases: DASHBOARD or ROOT or null
+   
     return (
       <div>
         { destinationRoute ? <Redirect to= { destinationRoute }/> : undefined }

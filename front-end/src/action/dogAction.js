@@ -21,36 +21,36 @@ const dogDelete = dog => ({
 });
 
 
-const dogsFetchRequest = () => (dispatch) => {
+const dogsFetchRequest = () => (store) => {
   return superagent.get(`${API_URL}/dogs`)
     .then((response) => {
-      dispatch(dogsFetch(response.body));
+      store.dispatch(dogsFetch(response.body));
       return response; 
     }); 
 };
 
-const dogCreateRequest = dog => (dispatch) => {
+const dogCreateRequest = dog => (store) => {
   return superagent.post(`${API_URL}/dogs`)
     .send(dog)
     .then((response) => {
-      dispatch(dogCreate(response.body));
+      store.dispatch(dogCreate(response.body));
       return response;
     });
 };
 
-const dogUpdateRequest = dog => (dispatch) => {
+const dogUpdateRequest = dog => (store) => {
   return superagent.put(`${API_URL}/dogs/${dog._id}`)
     .send(dog)
     .then((response) => {
-      dispatch(dogUpdate(response.body));
+      store.dispatch(dogUpdate(response.body));
       return response;
     });
 };
 
-const dogDeleteRequest = dog => (dispatch) => {
+const dogDeleteRequest = dog => (store) => {
   return superagent.delete(`${API_URL}/dogs/${dog._id}`)
     .then((response) => {
-      dispatch(dogDelete(dog));
+      store.dispatch(dogDelete(dog));
       return response;
     });
 };
