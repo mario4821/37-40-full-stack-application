@@ -34,6 +34,14 @@ dogRouter.get('/dogs/:id', (request, response, next) => {
     .catch(next);
 });
 
+dogRouter.get('/dogs', (request, response, next) => {
+  return Dog.find()
+    .then((dogs) => {
+      return response.json(dogs);
+    })
+    .catch(next);
+});
+
 dogRouter.put('/dogs/:id', jsonParser, (request, response, next) => {
   const options = { runValidators: true, new: true };
   return Dog.findByIdAndUpdate(request.params.id, request.body, options)

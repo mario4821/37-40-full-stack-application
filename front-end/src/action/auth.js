@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import * as routes from '../route';
+import * as route from '../route';
 
 
 export const setTokenAction = token => ({
@@ -13,7 +13,7 @@ export const removeTokenAction = () => ({
 
 
 export const signupRequest = user => (store) => {
-  return superagent.post(`${API_URL}${routes.SIGNUP_ROUTE}`)
+  return superagent.post(`${API_URL}${route.SIGNUP_ROUTE}`)
     .send(user)
     .withCredentials()
     .then((response) => {
@@ -23,7 +23,7 @@ export const signupRequest = user => (store) => {
 
 
 export const loginRequest = user => (store) => {
-  return superagent.get(`${API_URL}${routes.LOGIN_ROUTE}`)
+  return superagent.get(`${API_URL}${route.LOGIN_ROUTE}`)
     .auth(user.username, user.password)
     .withCredentials()
     .then((response) => {
