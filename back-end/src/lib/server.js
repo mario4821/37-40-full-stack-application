@@ -1,6 +1,7 @@
 'use strict';
 
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import logger from './logger';
 import accountRoutes from '../routes/account-route';
@@ -11,6 +12,11 @@ import errorMiddleware from './error-middleware';
 
 const app = express();
 let server = null;
+
+app.use(cors({ 
+  origin: 'http://localhost:8080',
+  credentials: true, 
+}));
 
 app.use(loggerMiddleware);
 app.use(accountRoutes);

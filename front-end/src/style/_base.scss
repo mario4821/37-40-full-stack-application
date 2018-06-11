@@ -8,3 +8,60 @@ html,body {
 h1, h2 {
   color: $font-color;
 }
+
+.dog-form {
+  display: inline-block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.dog-form input, .dog-form textarea {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.dog-form textarea {
+  height: 8em;
+}
+
+.dashboard {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.dashboard {
+  
+  h2 {
+    text-align: center;
+  }
+}
+
+.dashboard
+
+.body div {
+  margin: 2%;
+  text-align: center;
+  width: 20%;
+  float: left;
+}
+
+.body textarea {
+  height: 50px;
+}
+
+.body {
+  text-align: center;
+  margin-top: 80px;
+  .dog-form {
+    margin-left: 0;
+    display: block;
+    width: 100%;
+
+    input, textarea {
+      margin: 8px;
+      padding: 0px;
+    }
+  }
+}

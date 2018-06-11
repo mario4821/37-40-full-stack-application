@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autoBind from './../../utils';
+import autoBind from './../../utils/index';
 
-const emptyState = {
+const defaultState = {
   username: '',
   email: '',
   password: '',
@@ -11,25 +11,24 @@ const emptyState = {
 class AuthForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = emptyState;
+    this.state = defaultState;
     autoBind.call(this, AuthForm);
   }
 
-  handleChange(e) {
-    const { name, value } = e.target;
+  handleChange(event) {
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.onComplete(this.state);
-    this.setState(emptyState);
+    this.setState(defaultState);
   }
 
   render() {
     let { type } = this.props;
-
-    type = type === 'login' ? type : 'signup';
+    type = type === 'Login' ? type : 'Signup';
 
     const signupJSX =
       <input
@@ -40,7 +39,7 @@ class AuthForm extends React.Component {
         onChange={this.handleChange}
         />;
 
-    const signupRenderedJSX = (type !== 'login') ? signupJSX : undefined;
+    const signupRenderedJSX = (type !== 'Login') ? signupJSX : undefined;
 
     return (
       <form className='auth-form' onSubmit={this.handleSubmit} >
@@ -63,7 +62,7 @@ class AuthForm extends React.Component {
           onChange={this.handleChange}
           />
 
-        <button type='submit'> {type} </button>
+        <button type='submit'>{type}</button>
       </form>
     );
   }

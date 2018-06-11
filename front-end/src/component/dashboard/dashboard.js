@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DogForm from './../dogForm/dogForm';
+import DogForm from '../dog-form/dog-form';
 import * as dogAction from '../../action/dogAction';
 
 class Dashboard extends React.Component {
@@ -16,28 +16,33 @@ class Dashboard extends React.Component {
       dogUpdate, 
       dogDelete, 
     } = this.props;
+
     return (
       <div className="dashboard">
-        <h2>Dog App</h2>
+        <h2>Add a Dog To The Site!</h2>
         <DogForm 
           onComplete={dogCreate}
-          buttonText="Create Dog"
+          buttonText={'Create'}
         />
+        <div className="body">
+        <h2>Dog Availability</h2>
         {
+          dogs === undefined ? null : (
           dogs.map((dog) => {
             return (
               <div key={dog._id}>
-                <p>Name - {dog.firsName}</p>
-                <p>Breed - {dog.breed}</p>
-                <p>Age - {dog.age}</p>
-                <p>Location - {dog.location}</p>
-                <p>Details - {dog.details}</p>
+                <p>{dog.firstName}</p>
+                <p>{dog.breed}</p>
+                <p>{dog.age}</p>
+                <p>{dog.location}</p>
+                <p>{dog.details}</p>
                 <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
-                <button className="delete" onClick={() => dogDelete(dog)}>Delete</button>
+                <button className="delete" onClick={() => dogDelete(dog)}>X</button>
               </div>
             );
-          })
+          }))
         }
+      </div>
       </div>
     );
   }
@@ -59,8 +64,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   dogsFetch: () => dispatch(dogAction.dogsFetchRequest()),
-  dogUpdate: dog => dispatch(dogAction.dogCreateRequest(dog)),
   dogCreate: dog => dispatch(dogAction.dogCreateRequest(dog)),
+  dogUpdate: dog => dispatch(dogAction.dogCreateRequest(dog)),
   dogDelete: dog => dispatch(dogAction.dogDeleteRequest(dog)),
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import * as routes from '../../utils/route';
+import * as route from '../../utils/route';
 
 class AuthRedirect extends React.Component {
   render() {
@@ -11,18 +11,18 @@ class AuthRedirect extends React.Component {
 
     let destinationRoute = null;
 
-    if (pathname === routes.LOGIN_ROUTE || pathname === routes.SIGNUP_ROUTE ||
-    pathname === routes.ROOT_ROUTE) {
+    if (pathname === route.LOGIN_ROUTE || pathname === route.SIGNUP_ROUTE ||
+    pathname === route.ROOT_ROUTE) {
       if (token) {
-        destinationRoute = routes.DASHBOARD_ROUTE;
+        destinationRoute = route.DASHBOARD_ROUTE;
       } 
     } else if (!token) { 
-      destinationRoute = routes.ROOT_ROUTE;
+      destinationRoute = route.ROOT_ROUTE;
     }
    
     return (
       <div>
-        { destinationRoute ? <Redirect to= { destinationRoute }/> : undefined }
+        { destinationRoute ? <Redirect to={destinationRoute}/> : undefined }
       </div>
     );
   }
