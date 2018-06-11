@@ -1,0 +1,62 @@
+{
+  "name": "37-40-full-stack-application",
+  "version": "1.0.0",
+  "description": "## Submission Instructions   * Work in a fork of this repository   * Work in a branch on your fork   * Submit a pull request to this repository   * Submit a link to your pull request on canvas   * Submit a question, observation, and how long you spent on canvas",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack-dev-server --config webpack.dev.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mario4821/37-40-full-stack-application.git"
+  },
+  "author": "Mario Flores Jr.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mario4821/37-40-full-stack-application/issues"
+  },
+  "homepage": "https://github.com/mario4821/37-40-full-stack-application#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "dotenv": "^6.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-react": "^7.9.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-mock-store": "^1.5.1",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "superagent": "^3.8.3",
+    "uuid": "^3.2.1",
+    "webpack": "^4.11.0",
+    "webpack-cli": "^3.0.2",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "@types/prop-types": "^15.5.3",
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.2"
+  }
+}
