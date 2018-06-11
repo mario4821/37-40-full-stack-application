@@ -16,6 +16,7 @@ class Dashboard extends React.Component {
       dogUpdate, 
       dogDelete, 
     } = this.props;
+    console.log('dogarray', this.props);
 
     return (
       <div className="dashboard">
@@ -37,7 +38,7 @@ class Dashboard extends React.Component {
                 <p>{dog.location}</p>
                 <p>{dog.details}</p>
                 <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
-                <button className="delete" onClick={() => dogDelete(dog)}>X</button>
+                <button className="delete" onClick={() => dogDelete(dog)}>Delete Dog</button>
               </div>
             );
           }))
@@ -58,14 +59,14 @@ Dashboard.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    dogs: state.dogs,
+    dogs: state.dog,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   dogsFetch: () => dispatch(dogAction.dogsFetchRequest()),
   dogCreate: dog => dispatch(dogAction.dogCreateRequest(dog)),
-  dogUpdate: dog => dispatch(dogAction.dogCreateRequest(dog)),
+  dogUpdate: dog => dispatch(dogAction.dogUpdateRequest(dog)),
   dogDelete: dog => dispatch(dogAction.dogDeleteRequest(dog)),
 });
 

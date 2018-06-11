@@ -1,8 +1,8 @@
 import { validateDog } from '../utils/index';
 
-const emptyState = [];
+const defaultState = [];
 
-export default (state = emptyState, { type, payload }) => {
+export default (state = defaultState, { type, payload }) => {
   switch (type) {
     case 'DOGS_FETCH':
       return payload;

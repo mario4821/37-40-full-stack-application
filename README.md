@@ -6,7 +6,7 @@
 
 ## Overview
 
-This full stack JavaScript application built with a backend RESTful HTTP server that utilizes MongoDB to store and send data of dog availability. The data is presented into the frontend, via React, which renders the graphic interface to the user. The site requires the user to signup to register with the application, and provides a token that allows for return login access. 
+This full stack JavaScript application built with a back end RESTful HTTP server that utilizes MongoDB to store and send data of dog availability. The data is presented into the frontend, via React, which renders the graphic interface to the user. The site requires the user to sign up to register with the application, and provides a token that allows for return login access. 
 
 # Getting Started
 

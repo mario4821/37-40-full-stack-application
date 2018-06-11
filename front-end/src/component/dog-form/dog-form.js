@@ -8,6 +8,7 @@ const defaultState = {
   age: '',
   details: '',
   location: '',
+  _id: '',
   error: null,
 };
 
@@ -94,7 +95,7 @@ export default class DogForm extends React.Component {
 }
 
 DogForm.propTypes = {
-  onComplete: PropTypes.func,
   dog: PropTypes.object,
+  onComplete: PropTypes.func,
   buttonText: PropTypes.string,
 };
