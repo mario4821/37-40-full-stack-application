@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
       dogUpdate, 
       dogDelete, 
     } = this.props;
-    console.log('dogarray', this.props);
+    
 
     return (
       <div className="dashboard">
