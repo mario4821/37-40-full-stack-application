@@ -11,7 +11,7 @@ class Header extends React.Component {
     const JSXNotLoggedIn =
       <ul>
         <li><Link to={route.ROOT_ROUTE}> Home </Link></li>
-        <li><Link to={route.LOGIN_ROUTE}> Login</Link></li>
+        <li><Link to={route.LOGIN_ROUTE}> Login </Link></li>
         <li><Link to={route.SIGNUP_ROUTE}> Sign Up </Link></li>
     </ul>;
     const JSXLoggedIn =
@@ -22,7 +22,6 @@ class Header extends React.Component {
 
     return (
       <header className='header'>
-        <h1>Pound Puppy Alert</h1>
         <nav>
           { this.props.loggedIn ? JSXLoggedIn : JSXNotLoggedIn }
         </nav>
