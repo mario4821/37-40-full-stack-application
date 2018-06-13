@@ -30,14 +30,6 @@ class AuthLanding extends React.Component {
   }
 
   render() {
-    const rootJSX = 
-    <div>
-      {/* <h2> WELCOME TO POUND PUPPY ALERT </h2> */}
-      <Link to='/signup'> Sign Up With Us!</Link>
-      <p> </p>
-      {/* <Link to='/login'> Login to our app</Link> */}
-    </div>;
-
     const signUpJSX = <div>
       <h2> SIGN UP! </h2>
       <p> Already have an account? </p>
@@ -56,7 +48,6 @@ class AuthLanding extends React.Component {
 
     return (
       <div className='landing'>
-        {location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined }
         {location.pathname === routes.SIGNUP_ROUTE ? signUpJSX : undefined }
         {location.pathname === routes.LOGIN_ROUTE ? loginJSX : undefined }
       </div>

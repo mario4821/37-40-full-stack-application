@@ -17,7 +17,6 @@ class Header extends React.Component {
     const JSXLoggedIn =
       <ul>
         <li><Link to={route.DASHBOARD_ROUTE}> Dashboard </Link></li>
-        <li><Link to={route.PROFILE_ROUTE}> Profile </Link></li>
       </ul>;
 
     return (

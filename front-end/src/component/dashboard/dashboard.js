@@ -16,7 +16,6 @@ class Dashboard extends React.Component {
       dogUpdate, 
       dogDelete, 
     } = this.props;
-    console.log('dogarray', this.props);
 
     return (
       <div className="dashboard">
@@ -28,7 +27,6 @@ class Dashboard extends React.Component {
         <div className="body">
         <h2>Dog Availability</h2>
         {
-          dogs === undefined ? null : (
           dogs.map((dog) => {
             return (
               <div key={dog._id}>
@@ -41,7 +39,7 @@ class Dashboard extends React.Component {
                 <button className="delete" onClick={() => dogDelete(dog)}>Delete Dog</button>
               </div>
             );
-          }))
+          })
         }
       </div>
       </div>
