@@ -33,14 +33,14 @@ class AuthLanding extends React.Component {
     const signUpJSX = <div>
       <h2> SIGN UP! </h2>
       <p> Already have an account? </p>
-      <Link to='/login'> Login to our app</Link>
+      <Link to='/login'>Login Here</Link>
       <AuthForm onComplete= {this.handleSignup} type="Signup"/>
     </div>;
 
     const loginJSX = <div>
       <h2> LOGIN HERE </h2>
       <p> Do not have an account? </p>
-      <Link to='/signup'> Sign up with us!</Link>
+      <Link to='/signup'> Sign Up Here</Link>
       <AuthForm onComplete={ this.handleLogin} type='Login'/>
     </div>;
 
