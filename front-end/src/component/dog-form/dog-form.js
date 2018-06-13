@@ -8,7 +8,6 @@ const defaultState = {
   age: '',
   details: '',
   location: '',
-  _id: '',
   error: null,
 };
 

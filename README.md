@@ -1,4 +1,4 @@
-# Full Stack Pound Puppy Alert
+# Full Stack Pound Puppy Alert (Front End)
 
 **Author**: Mario Flores Jr.
 
@@ -23,6 +23,11 @@ Back End -
 To start up Nodemon Server, in the terminal type:
 
 ```nodemon```
+
+Add to Front End .env file:
+```API_URL=http://localhost:3000```
+```NODE_ENV=development```
+
 
 ## Architecture
 
