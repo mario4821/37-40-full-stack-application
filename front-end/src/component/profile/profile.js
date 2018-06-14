@@ -32,9 +32,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const {
-      profile,
-    } = this.props;
+    const { profile } = this.props;
 
     let JSXEditing = null;
     let JSXDisplay = null;
@@ -48,13 +46,17 @@ class Profile extends React.Component {
         </div>;
       JSXDisplay =
         <div>
-          <p>{profile.bio}</p>
           <button onClick={() => this.setState({ editing: true })}> Edit</button>
         </div>;
+
       JSXProfile =
         <div>
-          <h2> {profile.username} </h2>
-          <h3> {profile.email} </h3>
+          <p>{profile.firstName}</p>
+          <p>{profile.lastName}</p>
+          <p>{profile.phoneNumber}</p>
+          <p>{profile.location}</p>
+          <p>{profile.age}</p>
+          <p>{profile.breed}</p>
           {this.state.editing ? JSXEditing : JSXDisplay}
         </div>;
     }
@@ -76,7 +78,7 @@ Profile.propTypes = {
 
 
 const mapStateToProps = state => ({
-  profile: state.clientProfile,
+  profile: state.profile,
 });
 
 const mapDispatchToProps = dispatch => ({

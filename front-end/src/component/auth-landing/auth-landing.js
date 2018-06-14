@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as authActions from '../../action/auth';
+import * as profileAction from '../../action/profileAction';
 import autoBind from '../../utils/index';
 import AuthForm from '../auth-form/auth-form';
 import * as routes from '../../utils/route';
@@ -17,6 +18,7 @@ class AuthLanding extends React.Component {
     return this.props.pDoLogin(user)
       .then(() => {
         this.props.history.push(routes.DASHBOARD_ROUTE);
+        this.props.fetchProfile();
       })
       .catch(console.error);
   }
@@ -60,6 +62,7 @@ AuthLanding.propTypes = {
   pDoSignup: PropTypes.func,
   location: PropTypes.object,
   history: PropTypes.object,
+  fetchProfile: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
@@ -70,7 +73,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   pDoSignup: user => dispatch(authActions.signupRequest(user)),
   pDoLogin: user => dispatch(authActions.loginRequest(user)),
+  fetchProfile: () => dispatch(profileAction.profileFetchRequest()),
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthLanding);

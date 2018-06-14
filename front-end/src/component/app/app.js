@@ -47,7 +47,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchProfile: () => dispatch(profileAction.fetchRequest()),
+  fetchProfile: () => dispatch(profileAction.profileFetchRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
