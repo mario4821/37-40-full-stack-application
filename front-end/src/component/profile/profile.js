@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as clientProfileActions from '../../action/client-profile';
+import * as profileAction from '../../action/profileAction';
 import * as route from '../../utils/route';
 
 
@@ -80,8 +80,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  profileCreate: profile => dispatch(clientProfileActions.createRequest(profile)),
-  profileUpdate: profile => dispatch(clientProfileActions.updateRequest(profile)),
+  profileCreate: profile => dispatch(profileAction.createRequest(profile)),
+  profileUpdate: profile => dispatch(profileAction.updateRequest(profile)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

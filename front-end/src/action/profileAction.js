@@ -6,7 +6,7 @@ const setProfile = profile => ({
   payload: profile,
 });
 
-const createRequest = profile => (store) => {
+const profileCreateRequest = profile => (store) => {
   const { token } = store.getState();
 
   return superagent.post(`${API_URL}${route.PROFILE_ROUTE}`)
@@ -18,7 +18,7 @@ const createRequest = profile => (store) => {
     });
 };
 
-const updateRequest = profile => (store) => {
+const profileUpdateRequest = profile => (store) => {
   const { token } = store.getState();
 
   return superagent.put(`${API_URL}${route.PROFILE_ROUTE}/${profile._id}`)
@@ -30,7 +30,7 @@ const updateRequest = profile => (store) => {
     });
 };
 
-const fetchRequest = () => (store) => {
+const profileFetchRequest = () => (store) => {
   const { token } = store.getState();
 
   return superagent.get(`${API_URL}${route.PROFILE_ROUTE}/me`)
@@ -41,4 +41,4 @@ const fetchRequest = () => (store) => {
 };
 
 
-export { setProfile, createRequest, updateRequest, fetchRequest };
+export { setProfile, profileCreateRequest, profileUpdateRequest, profileFetchRequest };
