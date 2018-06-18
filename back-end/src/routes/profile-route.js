@@ -27,18 +27,29 @@ profileRouter.post('/profiles', bearerAuthMiddleware, jsonParser, (request, resp
     .catch(next);
 });
 
-profileRouter.get('/profiles/:id', (request, response, next) => {
-  return Profile.findById(request.params.id)
+profileRouter.get('/profiles/me', bearerAuthMiddleware, (request, response, next) => {
+  return Profile.findOne({ account: request.account._id })
     .then((profile) => {
       if (!profile) {
-        logger.log(logger.INFO, 'GET - responding with a 404 status code - (!profile)');
-        return next(new HttpError(404, 'profile not found'));
+        return next(new HttpError(404, 'NOT FOUND ERROR: profile not found'));
       }
-      logger.log(logger.INFO, 'GET - responding with a 200 status code');
       return response.json(profile);
     })
     .catch(next);
 });
+
+// profileRouter.get('/profiles/:id', (request, response, next) => {
+//   return Profile.findById(request.params.id)
+//     .then((profile) => {
+//       if (!profile) {
+//         logger.log(logger.INFO, 'GET - responding with a 404 status code - (!profile)');
+//         return next(new HttpError(404, 'profile not found'));
+//       }
+//       logger.log(logger.INFO, 'GET - responding with a 200 status code');
+//       return response.json(profile);
+//     })
+//     .catch(next);
+// });
 
 profileRouter.put('/profiles/:id', bearerAuthMiddleware, jsonParser, (request, response, next) => {
   const options = { runValidators: true, new: true };
