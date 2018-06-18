@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as profileAction from '../../action/profileAction';
-import * as route from '../../utils/route';
+import * as routes from '../../utils/route';
 
 
-import autoBind from '../../utils';
+import autoBind from '../../utils/index';
 import ProfileForm from '../profile-form/profile-form';
 
 class Profile extends React.Component {
@@ -22,7 +22,7 @@ class Profile extends React.Component {
   handleCreate(profile) {
     this.props.profileCreate(profile)
       .then(() => {
-        this.props.history.push(route.DASHBOARD_ROUTE);
+        this.props.history.push(routes.DASHBOARD_ROUTE);
       });
   }
 
@@ -82,8 +82,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  profileCreate: profile => dispatch(profileAction.createRequest(profile)),
-  profileUpdate: profile => dispatch(profileAction.updateRequest(profile)),
+  profileCreate: profile => dispatch(profileAction.profileCreateRequest(profile)),
+  profileUpdate: profile => dispatch(profileAction.profileUpdateRequest(profile)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

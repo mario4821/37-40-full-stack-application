@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import autoBind from '../../utils';
+import autoBind from '../../utils/index';
 
 const defaultState = {
   firstName: '',
@@ -65,8 +65,7 @@ class ProfileForm extends React.Component {
 
   render() {
     return (
-      <form
-        className='profile-form'
+      <form className='profile-form'
         onSubmit={this.handleSubmit}>
         <input
           name='firstName'
@@ -79,14 +78,14 @@ class ProfileForm extends React.Component {
         name='lastName'
         placeholder='Last Name'
         type='text'
-        value={this.state.firstName}
+        value={this.state.lastName}
         onChange={this.handleChange}
         />
         <input
         name='phoneNumber'
         placeholder='Phone Number'
         type='text'
-        value={this.state.firstName}
+        value={this.state.phoneNumber}
         onChange={this.handleChange}
         />
 
@@ -96,25 +95,25 @@ class ProfileForm extends React.Component {
   name='breed'
   placeholder='Breed'
   type='text'
-  value={this.state.firstName}
+  value={this.state.breed}
   onChange={this.handleChange}
   />
   <input
   name='location'
   placeholder='Zip Code'
   type='number'
-  value={this.state.firstName}
+  value={this.state.location}
   onChange={this.handleChange}
   />
   <input
   name='age'
   placeholder='Age'
   type='number'
-  value={this.state.firstName}
+  value={this.state.age}
   onChange={this.handleChange}
   />        
 
-        <button type='submit'> {this.props.profile ? 'update' : 'create'} profile </button>
+        <button type='submit'>{this.props.profile ? 'update' : 'create'} profile </button>
       </form>
     );
   }

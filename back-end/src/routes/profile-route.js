@@ -31,7 +31,7 @@ profileRouter.get('/profiles/me', bearerAuthMiddleware, (request, response, next
   return Profile.findOne({ account: request.account._id })
     .then((profile) => {
       if (!profile) {
-        return next(404, 'NOT FOUND ERROR: profile not found');
+        return next(new HttpError(404, 'NOT FOUND ERROR: profile not found'));
       }
       return response.json(profile);
     })
